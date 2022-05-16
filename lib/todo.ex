@@ -71,7 +71,7 @@ defmodule Todo do
       save(list)
       option = parse(Integer, IO.gets("\n1- Insert another task\n2- Return to menu\n"))
       case option do
-        1 -> num_inputs(list)
+        1 -> input_tasks(list, old_length, 1)
         2 -> main()
       end
     end
@@ -88,9 +88,17 @@ defmodule Todo do
     :erlang.binary_to_term(binary_data)
   end
 
+  def check_option_menu(option) do
+    if option == "1" || option == "2" || option == "3" || option == "4" || option == "5" do
+      parse(Integer, option)
+    else
+      {IO.puts("Invalid response."), main()}
+    end
+  end
+
 
   def main do
-    option = parse(Integer, IO.gets("\n1- See your list\n2- Add tasks to your list\n3- Remove a task from your list\n4- Choose a random task\n5- Sair\n"))
+    option = String.trim(IO.gets("\n1- See your list\n2- Add tasks to your list\n3- Remove a task from your list\n4- Choose a random task\n5- Sair\n")) |> check_option_menu()
 
     case option do
       1 -> todos_list() |> see_list()
@@ -98,7 +106,6 @@ defmodule Todo do
       3 -> todos_list() |> remove_task()
       4 -> todos_list() |> random_task()
       5 -> exit("")
-      _ -> {IO.puts("Invalid response."), main()}
     end
   end
 
