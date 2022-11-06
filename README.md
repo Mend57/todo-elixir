@@ -1,2 +1,2 @@
 # Todo
-Simple project to learn elixir and the fundamentals of functional programming.
+A command line todo list written in elixir.
