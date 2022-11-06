@@ -1,2 +1,2 @@
 # Todo
-A command line todo list written in elixir.
+A To Do List in the CLI written in Elixir
