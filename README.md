@@ -1,2 +1,2 @@
 # todo-elixir
-A ToDo List in the Terminal written in Elixir.
+A ToDo List for the Terminal written in Elixir.
